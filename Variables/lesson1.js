@@ -8,12 +8,19 @@ LOCAL VARIABLES - the variables can only be used in the section is was defined
 
 */
 //active
-// $(document).ready(function(){
 
-//     getInfo();
-//     showInfo();
+//********** NOT NEEDED FOR HTML TRIGGERING ************* */
+ $(document).ready(function(){
 
-// });
+   $("#button").click(function(){
+
+      showInfo();
+
+   })
+   
+});
+//******************************************************** */
+
 //DEFINITIONS
 var userName;
 
@@ -25,6 +32,6 @@ function getInfo(){
 function showInfo(){
    getInfo();
    var message = "Hello " + userName + ", glad to meet you!";
-
-   $("#output").text(message);
+   $("#output").text(message).show().animate({'top' : '0px', "opacity": "1"}, 'slow');
+   
 }

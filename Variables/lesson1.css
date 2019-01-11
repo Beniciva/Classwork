@@ -28,4 +28,8 @@ button{
 
 #output{
     text-align: center;
+    display: none;
+    position: relative;
+    top: 600px;
+    opacity: 0;
 }
