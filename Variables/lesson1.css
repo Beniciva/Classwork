@@ -5,6 +5,7 @@ body{
 fieldset{
     width: 600px;
     margin: auto;
+    text-align: center;
 }
 
 label{
@@ -19,17 +20,8 @@ input{
     float:left;
 }
 
-button{
-    display:block;
-    clear: both;
-    margin-left:auto;
-    margin-right: auto;
-}
-
 #output{
     text-align: center;
-    display: none;
     position: relative;
-    top: 600px;
-    opacity: 0;
+    opacity: 1;
 }
