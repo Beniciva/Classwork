@@ -2,11 +2,18 @@ $(document).ready(function(){
 
     $("#comparisons").click(function(){
 
-        output();
-
+        output("#input1"), ("#input2");
+        
 
     })
 
+    $("#conditional").click(function(){
+
+        output(conditional(input("#input1"), input("#input2")));
+        output(evenOrOdd(input("#input1")));
+        output(canDrive());
+        output(withLaw());
+    }
 });
 
 var input= function(a){
@@ -25,7 +32,7 @@ var compare = function(a, b){
 
 var output= function(a, b){
 
-    $("#output").text(conditional(input(a), input(b)));
+    $("#output").text(a);
 
 }
 
@@ -35,7 +42,49 @@ var output= function(a, b){
 
 var conditional = function(a, b){
 
-    if(a >b)
-    return"A is bigger";
+    if(a > b)
+        return "A is bigger";
+    if(b > a)
+        return "B is bigger";
+    if(b == a)
+        return "They are the same";
 
+   
+}
+
+var evenOrOdd = function(a){
+
+    if(a%2===0){
+        return (a + " is even");
+    }
+    else
+        return (a + " is odd");
+}
+
+//Compoud boolean experssions use AND (&&), OR (||), Nor to make ven deeper logical conunctions. 
+
+//If you are 16 and have a license, you can legally drive.
+
+var  canDrive = function(){
+
+    var age = parseInt(input("#input1"));
+    var license = input("#input2")
+
+    if(age >= 16 && license == "yes"){
+        return "You can drive!"
+    }
+    else 
+        return "You SHOULD not drive!"
+}
+
+var withLaw = function(){
+
+    var ap = (input("#input1"));
+    var cs3 = (input("#input2"));
+
+    if(ap === 'yes' || cs3 === 'yes'){
+        return "You will be in Law's class"
+    }
+    else   
+        return "You will NOT be in Law's class."
 }
