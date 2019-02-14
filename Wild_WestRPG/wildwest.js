@@ -1,76 +1,60 @@
-var hasBow = false;
-var hasPhaser = false; 
-
+var hasBow=false;
+var hasPhaser=false;
 $(document).ready(function(){
-
-    var button1 = createButton("option3" , O3);
-    var button2 = createButton("option4" , O4);
-    var button3 = createButton("option5" , O5);  
-    var button4 = createButton("option6" , O6);
-    var button5 = createButton("option7" , O8);
-    var button6 = createButton("option8" ,O81);
-    var button7 = createButton("option8" ,O82);
-    updateNarrative(N1)
-    $('footer').html(createButton("option1", O1) + createButton("option2", O2));
-
-    $("#option1").click(function(){
-        updateNarrative(N2);
-        $('footer').html(button1 + button2 + button3);
-        hasBow = true;
-    })
-
-    $("#option2").click(function(){
-        updateNarrative(N3)
-        $('footer').html(createButton(button4 + button5);
-        hasPhaser = true;
-    })
-
     
-
-    $("#option3").click(function(){
-    var rolebutton;
-    if(hasBow){
-        rolebutton = createbutton(button6)
-    } else
-    rolebutton = createButton("option8", O82);
-        updateNarrative(N5);
-        $("footer").html(button7);
+    updateNar(n1);
+    $("footer").html(createButton("button1", o1)+createButton("button2", o2));
+    createButton("button3", "not used");
+    $("#button3").hide();
+    $("#button1").click(function(){
+        if($("#button1").text()===o1){
+            updateNar(n2)
+            $("#button1").text(o3);
+            $("#button2").text(o4);
+            $("#button3").text(o5);
+            $("#button3").show();
+        }
+        else if($("#button1").text()===o3){
+            updateNar(n5);
+            $("#button1").text(o81);
+            $("#button2").hide()
+        }
+    });
+    $("#button2").click(function(){
+        if($("#button2").text()===o2){
+            updateNar(n3);
+            $("#button1").text(o6);
+            $("#button2").text(o7);
+        }
+        else if($("#button2").text()===o7){
+            updateNar(n6);
+            $("#button2").text(o82);
+            $("#button1").hide();
+        }
+    });
+    $("#button3").click(function(){
+        
     })
+})
 
-    $("#option6").click(function(){
-        updateNarrative(N6);
-        $("footer").html(rolebutton);
-    })
-});
-
-
-
-var N1 = "Once upon a time in the Wild Wild West there lived a ...";
-var N2 = "This ranger was the most dangerous archer known to man. He loved to ..."
-var N3 = "This robot had killer insticts. Purge the Wild West of all evil-doers. Armed with a phaser he ..."
-var N5 = "The ranger approaches the insidious Mr. Pig. He raises his bow and ... "
-var N6 = 'The robot approaches the insidious Mr. Pig. He raises his phaser and ...'
-var O1 = "ranger."
-var O2 = "robot."
-var O3 = "chase tumbleweeds."
-var O4 = "cook pancakes."
-var O5 = "arrest bad robots."
-var O6 = "heats his pork and beans."
-var O7 = "purges the Wild West of all evil-doers."
-var O81 = "shoots the arrow through Mr. Pig."
-var O82 = "fires, vaporizing Mr. Pig."
-
-var updateNarrative = function(a){
-
-    $("article").text(a)
-
+var n1="Once upon a time in the Wild Wild West there lived a ...";
+var n2="This ranger was the most dangerous archer known to man. He loved to ...";
+var n3="This robot had killer instincts. Purge the Wild West of all evil-doers. Armed with a phaser he ...";
+var n4="";
+var n5="The ranger approaches the insiduous Mr. Pig. He raises his bow and ...";
+var n6="The robot approaches the insiduous Mr. Pig. He raises his phaser and ...";
+var o1="ranger.";
+var o2="robot.";
+var o3="chase tumbleweeds.";
+var o4="cook pancakes.";
+var o5="arrest bad robots.";
+var o6="heats his pork and beans.";
+var o7="purges the Wild West of all evil-doers.";
+var o81="shoots an arrow through Mr. Pig.";
+var o82="fires, vaporizing Mr. Pig.";
+var updateNar=function(a){
+    $("article").text(a);
 }
-
-
-var createButton = function(id, text ){
-
-    return "<button type=button id=" + id + ">" + text + "</button>";
- 
-
+var createButton=function(id, text){
+    return "<button type=button id="+id+">"+text+"</button>";
 }
-
