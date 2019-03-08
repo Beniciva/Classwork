@@ -7,30 +7,48 @@ $(document).ready(function(){
     createButton("button3", "not used");
     $("#button3").hide();
     $("#button1").click(function(){
+
         if($("#button1").text()===o1){
             updateNar(n2)
             $("#button1").text(o3);
             $("#button2").text(o4);
             $("#button3").text(o5);
             $("#button3").show();
+
         }
-        else if($("#button1").text()===o3){
+        else if($("#button1").text()===o3 && hasBow === true){
+
             updateNar(n5);
+            updateButtons(03, 04, 05);
             $("#button1").text(o81);
             $("#button2").hide()
+
         }
+        else if($("#button1").text() === o3){
+            updateNar("Did not get bow.")
+
+        }
+
     });
     $("#button2").click(function(){
+
         if($("#button2").text()===o2){
             updateNar(n3);
             $("#button1").text(o6);
             $("#button2").text(o7);
+        }
+        else if($("#button2").text() === o4){
+            updateNar("He went to hsi bags to get the pancake mix, and found his favorite weapon, super slicer arrow thingy 4000, bow.");
+            $("#button1").text(O3)
+            $("#button2").text("runs to target practice")
+            hasBow = true;
         }
         else if($("#button2").text()===o7){
             updateNar(n6);
             $("#button2").text(o82);
             $("#button1").hide();
         }
+
     });
     $("#button3").click(function(){
         
@@ -52,9 +70,23 @@ var o6="heats his pork and beans.";
 var o7="purges the Wild West of all evil-doers.";
 var o81="shoots an arrow through Mr. Pig.";
 var o82="fires, vaporizing Mr. Pig.";
+
 var updateNar=function(a){
+
     $("article").text(a);
+
 }
+
+var updateButtons = function(a, b){
+
+    $("#button1").text(a);
+    $("#button2").text(b);
+    $("#button3").text(c);
+
+}
+
 var createButton=function(id, text){
+
     return "<button type=button id="+id+">"+text+"</button>";
+
 }
